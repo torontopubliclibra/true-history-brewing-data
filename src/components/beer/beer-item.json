@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_beer_beer_items",
+  "info": {
+    "displayName": "beer-item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "text",
+      "unique": false,
+      "required": true
+    },
+    "abv": {
+      "type": "decimal",
+      "required": true
+    },
+    "volume": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    }
+  }
+}

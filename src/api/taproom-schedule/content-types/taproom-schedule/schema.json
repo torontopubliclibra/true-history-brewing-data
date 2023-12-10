@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "taproom_schedules",
+  "info": {
+    "singularName": "taproom-schedule",
+    "pluralName": "taproom-schedules",
+    "displayName": " Taproom schedule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tuesstart": {
+      "type": "time",
+      "required": true,
+      "default": "16:00"
+    },
+    "tuesend": {
+      "type": "time",
+      "default": "23:00",
+      "required": true
+    },
+    "wedsstart": {
+      "type": "time",
+      "default": "16:00",
+      "required": true
+    },
+    "wedsend": {
+      "type": "time",
+      "default": "23:00",
+      "required": true
+    },
+    "thursstart": {
+      "type": "time",
+      "default": "16:00",
+      "required": true
+    },
+    "thursend": {
+      "type": "time",
+      "default": "23:00",
+      "required": true
+    },
+    "fristart": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "friend": {
+      "type": "time",
+      "default": "00:00",
+      "required": true
+    },
+    "satstart": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "satend": {
+      "type": "time",
+      "default": "22:00",
+      "required": true
+    },
+    "sunstart": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "sunend": {
+      "type": "time",
+      "default": "22:00",
+      "required": true
+    }
+  }
+}
