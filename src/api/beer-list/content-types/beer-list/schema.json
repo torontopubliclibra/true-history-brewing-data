@@ -12,11 +12,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "beer": {
+    "beer1": {
       "displayName": "beer-item",
       "type": "component",
-      "repeatable": true,
-      "component": "beer.beer-item"
+      "repeatable": false,
+      "component": "beer.beer-item",
+      "required": true
+    },
+    "beer2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "beer.beer-item",
+      "required": true
+    },
+    "beer3": {
+      "type": "component",
+      "repeatable": false,
+      "component": "beer.beer-item",
+      "required": true
     }
   }
 }

@@ -12,64 +12,40 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "tuesstart": {
-      "type": "time",
-      "required": true,
-      "default": "16:00"
-    },
-    "tuesend": {
-      "type": "time",
-      "default": "23:00",
+    "tuesday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     },
-    "wedsstart": {
-      "type": "time",
-      "default": "16:00",
+    "wednesday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     },
-    "wedsend": {
-      "type": "time",
-      "default": "23:00",
+    "thursday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     },
-    "thursstart": {
-      "type": "time",
-      "default": "16:00",
+    "friday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     },
-    "thursend": {
-      "type": "time",
-      "default": "23:00",
+    "saturday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     },
-    "fristart": {
-      "type": "time",
-      "default": "12:00",
-      "required": true
-    },
-    "friend": {
-      "type": "time",
-      "default": "00:00",
-      "required": true
-    },
-    "satstart": {
-      "type": "time",
-      "default": "12:00",
-      "required": true
-    },
-    "satend": {
-      "type": "time",
-      "default": "22:00",
-      "required": true
-    },
-    "sunstart": {
-      "type": "time",
-      "default": "12:00",
-      "required": true
-    },
-    "sunend": {
-      "type": "time",
-      "default": "22:00",
+    "sunday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.schedule",
       "required": true
     }
   }

@@ -689,7 +689,9 @@ export interface ApiBeerListBeerList extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    beer: Attribute.Component<'beer.beer-item', true>;
+    beer1: Attribute.Component<'beer.beer-item'> & Attribute.Required;
+    beer2: Attribute.Component<'beer.beer-item'> & Attribute.Required;
+    beer3: Attribute.Component<'beer.beer-item'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -721,32 +723,12 @@ export interface ApiTaproomScheduleTaproomSchedule
     draftAndPublish: true;
   };
   attributes: {
-    tuesstart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    tuesend: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'23:00'>;
-    wedsstart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    wedsend: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'23:00'>;
-    thursstart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    thursend: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'23:00'>;
-    fristart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    friend: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'00:00'>;
-    satstart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    satend: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'22:00'>;
-    sunstart: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    sunend: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'22:00'>;
+    tuesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    wednesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    thursday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    friday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    saturday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    sunday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

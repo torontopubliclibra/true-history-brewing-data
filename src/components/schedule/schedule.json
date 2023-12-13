@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_schedule_schedules",
+  "info": {
+    "displayName": "day-hours",
+    "icon": "calendar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "time",
+      "required": true
+    },
+    "end": {
+      "type": "time",
+      "required": true
+    }
+  }
+}
