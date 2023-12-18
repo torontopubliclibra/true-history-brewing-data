@@ -4,17 +4,73 @@
   "info": {
     "singularName": "schedule",
     "pluralName": "schedules",
-    "displayName": "Schedule"
+    "displayName": "schedule",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "tuesday": {
-      "type": "component",
-      "repeatable": true,
-      "component": "schedule.schedule"
+    "tues_start": {
+      "type": "time",
+      "required": true,
+      "default": "16:00"
+    },
+    "tues_end": {
+      "type": "time",
+      "required": true,
+      "default": "23:00"
+    },
+    "weds_start": {
+      "type": "time",
+      "required": true,
+      "default": "16:00"
+    },
+    "weds_end": {
+      "type": "time",
+      "required": true,
+      "default": "23:00"
+    },
+    "thurs_start": {
+      "type": "time",
+      "default": "16:00",
+      "required": true
+    },
+    "thurs_end": {
+      "type": "time",
+      "default": "23:00",
+      "required": true
+    },
+    "fri_start": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "fri_end": {
+      "type": "time",
+      "default": "00:00",
+      "required": true
+    },
+    "sat_start": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "sat_end": {
+      "type": "time",
+      "default": "00:00",
+      "required": true
+    },
+    "sun_start": {
+      "type": "time",
+      "default": "12:00",
+      "required": true
+    },
+    "sun_end": {
+      "type": "time",
+      "default": "22:00",
+      "required": true
     }
   }
 }

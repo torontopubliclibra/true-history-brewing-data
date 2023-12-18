@@ -362,6 +362,66 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiScheduleSchedule extends Schema.CollectionType {
+  collectionName: 'schedules';
+  info: {
+    singularName: 'schedule';
+    pluralName: 'schedules';
+    displayName: 'schedule';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tues_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'16:00'>;
+    tues_end: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'23:00'>;
+    weds_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'16:00'>;
+    weds_end: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'23:00'>;
+    thurs_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'16:00'>;
+    thurs_end: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'23:00'>;
+    fri_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'12:00'>;
+    fri_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'00:00'>;
+    sat_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'12:00'>;
+    sat_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'00:00'>;
+    sun_start: Attribute.Time &
+      Attribute.Required &
+      Attribute.DefaultTo<'12:00'>;
+    sun_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'22:00'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::schedule.schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::schedule.schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -677,69 +737,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBeerListBeerList extends Schema.CollectionType {
-  collectionName: 'beer_lists';
-  info: {
-    singularName: 'beer-list';
-    pluralName: 'beer-lists';
-    displayName: 'Tap list';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    beer1: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    beer2: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    beer3: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::beer-list.beer-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::beer-list.beer-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiScheduleSchedule extends Schema.CollectionType {
-  collectionName: 'schedules';
-  info: {
-    singularName: 'schedule';
-    pluralName: 'schedules';
-    displayName: 'Schedule';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    tuesday: Attribute.Component<'schedule.schedule', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -750,14 +747,13 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::schedule.schedule': ApiScheduleSchedule;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::beer-list.beer-list': ApiBeerListBeerList;
-      'api::schedule.schedule': ApiScheduleSchedule;
     }
   }
 }

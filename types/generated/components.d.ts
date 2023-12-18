@@ -1,38 +1,20 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface BeerBeerItem extends Schema.Component {
-  collectionName: 'components_beer_beer_items';
+export interface DayTuesday extends Schema.Component {
+  collectionName: 'components_day_tuesdays';
   info: {
-    displayName: 'beer';
-    description: '';
+    displayName: 'tuesday';
   };
   attributes: {
-    name: Attribute.Text & Attribute.Required;
-    abv: Attribute.Decimal & Attribute.Required;
-    volume: Attribute.Integer & Attribute.Required;
-    price: Attribute.Decimal & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-  };
-}
-
-export interface ScheduleSchedule extends Schema.Component {
-  collectionName: 'components_schedule_schedules';
-  info: {
-    displayName: 'day-hours';
-    icon: 'calendar';
-    description: '';
-  };
-  attributes: {
-    start: Attribute.Time & Attribute.Required;
-    end: Attribute.Time & Attribute.Required;
+    start: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'16:00'>;
+    end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'22:00'>;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'beer.beer-item': BeerBeerItem;
-      'schedule.schedule': ScheduleSchedule;
+      'day.tuesday': DayTuesday;
     }
   }
 }

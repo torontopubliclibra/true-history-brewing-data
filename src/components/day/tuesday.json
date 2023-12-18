@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_day_tuesdays",
+  "info": {
+    "displayName": "tuesday"
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "time",
+      "required": true,
+      "default": "16:00"
+    },
+    "end": {
+      "type": "time",
+      "required": true,
+      "default": "22:00"
+    }
+  }
+}
