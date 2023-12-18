@@ -362,6 +362,76 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBeerListBeerList extends Schema.CollectionType {
+  collectionName: 'beer_lists';
+  info: {
+    singularName: 'beer-list';
+    pluralName: 'beer-lists';
+    displayName: 'Tap list';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beer1: Attribute.Component<'beer.beer-item'> & Attribute.Required;
+    beer2: Attribute.Component<'beer.beer-item'> & Attribute.Required;
+    beer3: Attribute.Component<'beer.beer-item'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::beer-list.beer-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::beer-list.beer-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTaproomScheduleTaproomSchedule
+  extends Schema.CollectionType {
+  collectionName: 'taproom_schedules';
+  info: {
+    singularName: 'taproom-schedule';
+    pluralName: 'taproom-schedules';
+    displayName: 'Schedule';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tuesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    wednesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    thursday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    friday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    saturday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    sunday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::taproom-schedule.taproom-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::taproom-schedule.taproom-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -677,76 +747,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBeerListBeerList extends Schema.CollectionType {
-  collectionName: 'beer_lists';
-  info: {
-    singularName: 'beer-list';
-    pluralName: 'beer-lists';
-    displayName: 'Tap list';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    beer1: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    beer2: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    beer3: Attribute.Component<'beer.beer-item'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::beer-list.beer-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::beer-list.beer-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTaproomScheduleTaproomSchedule
-  extends Schema.CollectionType {
-  collectionName: 'taproom_schedules';
-  info: {
-    singularName: 'taproom-schedule';
-    pluralName: 'taproom-schedules';
-    displayName: 'Schedule';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    tuesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    wednesday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    thursday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    friday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    saturday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    sunday: Attribute.Component<'schedule.schedule'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::taproom-schedule.taproom-schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::taproom-schedule.taproom-schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -757,14 +757,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::beer-list.beer-list': ApiBeerListBeerList;
+      'api::taproom-schedule.taproom-schedule': ApiTaproomScheduleTaproomSchedule;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::beer-list.beer-list': ApiBeerListBeerList;
-      'api::taproom-schedule.taproom-schedule': ApiTaproomScheduleTaproomSchedule;
     }
   }
 }
