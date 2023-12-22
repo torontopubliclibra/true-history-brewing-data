@@ -731,6 +731,38 @@ export interface ApiBeerMenuBeerMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiEventEvent extends Schema.CollectionType {
+  collectionName: 'events';
+  info: {
+    singularName: 'event';
+    pluralName: 'events';
+    displayName: 'Events';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event1_date: Attribute.DateTime & Attribute.Required;
+    event1_name: Attribute.String;
+    event1_img: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiScheduleSchedule extends Schema.CollectionType {
   collectionName: 'schedules';
   info: {
@@ -819,6 +851,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::beer-menu.beer-menu': ApiBeerMenuBeerMenu;
+      'api::event.event': ApiEventEvent;
       'api::schedule.schedule': ApiScheduleSchedule;
     }
   }
