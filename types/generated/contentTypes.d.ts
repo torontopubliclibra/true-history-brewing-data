@@ -362,77 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiScheduleSchedule extends Schema.CollectionType {
-  collectionName: 'schedules';
-  info: {
-    singularName: 'schedule';
-    pluralName: 'schedules';
-    displayName: 'schedule';
-    description: 'True History schedule';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    mon_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'closed'>;
-    mon_start: Attribute.Time;
-    mon_end: Attribute.Time;
-    tues_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    tues_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    tues_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    weds_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    weds_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    weds_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    thurs_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    thurs_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    thurs_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    fri_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    fri_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    fri_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
-    sat_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    sat_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    sat_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
-    sun_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    sun_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    sun_end: Attribute.Time & Attribute.DefaultTo<'22:00'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -748,6 +677,131 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBeerMenuBeerMenu extends Schema.CollectionType {
+  collectionName: 'beer-menus';
+  info: {
+    singularName: 'beer-menu';
+    pluralName: 'beer-menus';
+    displayName: 'Beer menu';
+    description: 'THB tap list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beer1_name: Attribute.String & Attribute.Required;
+    beer1_abv: Attribute.Decimal & Attribute.Required;
+    beer1_price: Attribute.Decimal & Attribute.Required;
+    beer1_description: Attribute.Text & Attribute.Required;
+    beer2_name: Attribute.String & Attribute.Required;
+    beer2_abv: Attribute.Decimal & Attribute.Required;
+    beer2_price: Attribute.Decimal & Attribute.Required;
+    beer2_description: Attribute.Text & Attribute.Required;
+    beer3_name: Attribute.String & Attribute.Required;
+    beer3_abv: Attribute.Decimal & Attribute.Required;
+    beer3_price: Attribute.Decimal & Attribute.Required;
+    beer3_description: Attribute.Text & Attribute.Required;
+    beer4_name: Attribute.String & Attribute.Required;
+    beer4_abv: Attribute.Decimal & Attribute.Required;
+    beer4_price: Attribute.Decimal & Attribute.Required;
+    beer4_description: Attribute.Text & Attribute.Required;
+    beer5_name: Attribute.String;
+    beer5_abv: Attribute.Decimal;
+    beer5_price: Attribute.Decimal;
+    beer5_description: Attribute.Text;
+    beer6_name: Attribute.String;
+    beer6_abv: Attribute.Decimal;
+    beer6_price: Attribute.Decimal;
+    beer6_description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::beer-menu.beer-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::beer-menu.beer-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiScheduleSchedule extends Schema.CollectionType {
+  collectionName: 'schedules';
+  info: {
+    singularName: 'schedule';
+    pluralName: 'schedules';
+    displayName: 'Schedule';
+    description: 'THB hours of operation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mon_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'closed'>;
+    mon_start: Attribute.Time;
+    mon_end: Attribute.Time;
+    tues_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    tues_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    tues_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    weds_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    weds_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    weds_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    thurs_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    thurs_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    thurs_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    fri_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    fri_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    fri_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
+    sat_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    sat_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    sat_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
+    sun_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'open'>;
+    sun_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    sun_end: Attribute.Time & Attribute.DefaultTo<'22:00'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::schedule.schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::schedule.schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -758,13 +812,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::schedule.schedule': ApiScheduleSchedule;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::beer-menu.beer-menu': ApiBeerMenuBeerMenu;
+      'api::schedule.schedule': ApiScheduleSchedule;
     }
   }
 }

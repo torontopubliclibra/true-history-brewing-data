@@ -4,8 +4,8 @@
   "info": {
     "singularName": "schedule",
     "pluralName": "schedules",
-    "displayName": "schedule",
-    "description": "True History schedule"
+    "displayName": "Schedule",
+    "description": "THB hours of operation"
   },
   "options": {
     "draftAndPublish": true
