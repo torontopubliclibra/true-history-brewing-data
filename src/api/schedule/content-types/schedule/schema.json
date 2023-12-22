@@ -5,72 +5,150 @@
     "singularName": "schedule",
     "pluralName": "schedules",
     "displayName": "schedule",
-    "description": ""
+    "description": "True History schedule"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "mon_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "closed",
+      "required": true
+    },
+    "mon_start": {
+      "type": "time",
+      "required": false
+    },
+    "mon_end": {
+      "type": "time",
+      "required": false
+    },
+    "tues_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
+      "required": true
+    },
     "tues_start": {
       "type": "time",
-      "required": true,
-      "default": "16:00"
+      "default": "16:00",
+      "required": false
     },
     "tues_end": {
       "type": "time",
-      "required": true,
-      "default": "23:00"
+      "default": "23:00",
+      "required": false
+    },
+    "weds_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
+      "required": true
     },
     "weds_start": {
       "type": "time",
-      "required": true,
-      "default": "16:00"
+      "default": "16:00",
+      "required": false
     },
     "weds_end": {
       "type": "time",
-      "required": true,
-      "default": "23:00"
+      "default": "23:00",
+      "required": false
+    },
+    "thurs_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
+      "required": true
     },
     "thurs_start": {
       "type": "time",
       "default": "16:00",
-      "required": true
+      "required": false
     },
     "thurs_end": {
       "type": "time",
       "default": "23:00",
+      "required": false
+    },
+    "fri_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
       "required": true
     },
     "fri_start": {
       "type": "time",
       "default": "12:00",
-      "required": true
+      "required": false
     },
     "fri_end": {
       "type": "time",
       "default": "00:00",
+      "required": false
+    },
+    "sat_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
       "required": true
     },
     "sat_start": {
       "type": "time",
       "default": "12:00",
-      "required": true
+      "required": false
     },
     "sat_end": {
       "type": "time",
       "default": "00:00",
+      "required": false
+    },
+    "sun_service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop only"
+      ],
+      "default": "open",
       "required": true
     },
     "sun_start": {
       "type": "time",
       "default": "12:00",
-      "required": true
+      "required": false
     },
     "sun_end": {
       "type": "time",
       "default": "22:00",
-      "required": true
+      "required": false
     }
   }
 }
