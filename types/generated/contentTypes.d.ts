@@ -368,42 +368,53 @@ export interface ApiScheduleSchedule extends Schema.CollectionType {
     singularName: 'schedule';
     pluralName: 'schedules';
     displayName: 'schedule';
-    description: '';
+    description: 'True History schedule';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    tues_start: Attribute.Time &
+    mon_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
       Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    tues_end: Attribute.Time &
+      Attribute.DefaultTo<'closed'>;
+    mon_start: Attribute.Time;
+    mon_end: Attribute.Time;
+    tues_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
       Attribute.Required &
-      Attribute.DefaultTo<'23:00'>;
-    weds_start: Attribute.Time &
+      Attribute.DefaultTo<'open'>;
+    tues_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    tues_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    weds_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
       Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    weds_end: Attribute.Time &
+      Attribute.DefaultTo<'open'>;
+    weds_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    weds_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    thurs_service: Attribute.Enumeration<
+      ['open', 'closed', 'bottle shop only']
+    > &
       Attribute.Required &
-      Attribute.DefaultTo<'23:00'>;
-    thurs_start: Attribute.Time &
+      Attribute.DefaultTo<'open'>;
+    thurs_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
+    thurs_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
+    fri_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
       Attribute.Required &
-      Attribute.DefaultTo<'16:00'>;
-    thurs_end: Attribute.Time &
+      Attribute.DefaultTo<'open'>;
+    fri_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    fri_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
+    sat_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
       Attribute.Required &
-      Attribute.DefaultTo<'23:00'>;
-    fri_start: Attribute.Time &
+      Attribute.DefaultTo<'open'>;
+    sat_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    sat_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
+    sun_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
       Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    fri_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'00:00'>;
-    sat_start: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    sat_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'00:00'>;
-    sun_start: Attribute.Time &
-      Attribute.Required &
-      Attribute.DefaultTo<'12:00'>;
-    sun_end: Attribute.Time & Attribute.Required & Attribute.DefaultTo<'22:00'>;
+      Attribute.DefaultTo<'open'>;
+    sun_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
+    sun_end: Attribute.Time & Attribute.DefaultTo<'22:00'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
