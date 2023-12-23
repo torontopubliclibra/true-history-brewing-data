@@ -15,10 +15,52 @@
       "type": "datetime",
       "required": true
     },
-    "event1_name": {
+    "event1_title": {
       "type": "string"
     },
     "event1_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "event2_date": {
+      "type": "datetime",
+      "required": false
+    },
+    "event2_title": {
+      "type": "string"
+    },
+    "event2_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "event3_date": {
+      "type": "datetime",
+      "required": false
+    },
+    "event3_title": {
+      "type": "string"
+    },
+    "event3_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "event4_date": {
+      "type": "datetime",
+      "required": false
+    },
+    "event4_title": {
+      "type": "string"
+    },
+    "event4_img": {
       "allowedTypes": [
         "images"
       ],
