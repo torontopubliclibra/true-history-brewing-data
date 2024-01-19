@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_food_item_food_items",
+  "info": {
+    "displayName": "food-item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "minLength": 4
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "sm",
+        "med",
+        "lrg"
+      ],
+      "default": "sm",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 8
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "minLength": 6
+    }
+  }
+}

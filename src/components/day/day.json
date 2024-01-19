@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_day_days",
+  "info": {
+    "displayName": "day",
+    "icon": "calendar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "time",
+      "required": false,
+      "default": "16:00"
+    },
+    "end": {
+      "type": "time",
+      "default": "22:00",
+      "required": false
+    },
+    "service": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "bottle shop"
+      ],
+      "default": "open",
+      "required": true
+    }
+  }
+}

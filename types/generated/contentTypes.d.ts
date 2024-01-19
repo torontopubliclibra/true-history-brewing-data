@@ -689,30 +689,7 @@ export interface ApiBeerMenuBeerMenu extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    beer1_name: Attribute.String & Attribute.Required;
-    beer1_abv: Attribute.Decimal & Attribute.Required;
-    beer1_price: Attribute.Decimal & Attribute.Required;
-    beer1_description: Attribute.Text & Attribute.Required;
-    beer2_name: Attribute.String & Attribute.Required;
-    beer2_abv: Attribute.Decimal & Attribute.Required;
-    beer2_price: Attribute.Decimal & Attribute.Required;
-    beer2_description: Attribute.Text & Attribute.Required;
-    beer3_name: Attribute.String & Attribute.Required;
-    beer3_abv: Attribute.Decimal & Attribute.Required;
-    beer3_price: Attribute.Decimal & Attribute.Required;
-    beer3_description: Attribute.Text & Attribute.Required;
-    beer4_name: Attribute.String & Attribute.Required;
-    beer4_abv: Attribute.Decimal & Attribute.Required;
-    beer4_price: Attribute.Decimal & Attribute.Required;
-    beer4_description: Attribute.Text & Attribute.Required;
-    beer5_name: Attribute.String;
-    beer5_abv: Attribute.Decimal;
-    beer5_price: Attribute.Decimal;
-    beer5_description: Attribute.Text;
-    beer6_name: Attribute.String;
-    beer6_abv: Attribute.Decimal;
-    beer6_price: Attribute.Decimal;
-    beer6_description: Attribute.Text;
+    beer: Attribute.Component<'beer.beer', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -743,8 +720,17 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
   attributes: {
     event1_date: Attribute.DateTime & Attribute.Required;
-    event1_name: Attribute.String;
+    event1_title: Attribute.String;
     event1_img: Attribute.Media;
+    event2_date: Attribute.DateTime;
+    event2_title: Attribute.String;
+    event2_img: Attribute.Media;
+    event3_date: Attribute.DateTime;
+    event3_title: Attribute.String;
+    event3_img: Attribute.Media;
+    event4_date: Attribute.DateTime;
+    event4_title: Attribute.String;
+    event4_img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -756,6 +742,126 @@ export interface ApiEventEvent extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventsListEventsList extends Schema.CollectionType {
+  collectionName: 'events_lists';
+  info: {
+    singularName: 'events-list';
+    pluralName: 'events-lists';
+    displayName: 'Events list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event: Attribute.Component<'event.event', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::events-list.events-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::events-list.events-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFoodMenuFoodMenu extends Schema.CollectionType {
+  collectionName: 'food_menus';
+  info: {
+    singularName: 'food-menu';
+    pluralName: 'food-menus';
+    displayName: 'Food menu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    item: Attribute.Component<'food-item.food-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::food-menu.food-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::food-menu.food-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHourHour extends Schema.CollectionType {
+  collectionName: 'hours';
+  info: {
+    singularName: 'hour';
+    pluralName: 'hours';
+    displayName: 'Hours';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mon: Attribute.Component<'day.day'> & Attribute.Required;
+    tues: Attribute.Component<'day.day'> & Attribute.Required;
+    weds: Attribute.Component<'day.day'> & Attribute.Required;
+    thurs: Attribute.Component<'day.day'> & Attribute.Required;
+    fri: Attribute.Component<'day.day'> & Attribute.Required;
+    sat: Attribute.Component<'day.day'> & Attribute.Required;
+    sun: Attribute.Component<'day.day'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::hour.hour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::hour.hour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNonAlcMenuNonAlcMenu extends Schema.CollectionType {
+  collectionName: 'non_alc_menus';
+  info: {
+    singularName: 'non-alc-menu';
+    pluralName: 'non-alc-menus';
+    displayName: 'Non-alc menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beverage: Attribute.Component<'beverage.beverage', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::non-alc-menu.non-alc-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::non-alc-menu.non-alc-menu',
       'oneToOne',
       'admin::user'
     > &
@@ -834,6 +940,37 @@ export interface ApiScheduleSchedule extends Schema.CollectionType {
   };
 }
 
+export interface ApiWineSeltzersEtcMenuWineSeltzersEtcMenu
+  extends Schema.CollectionType {
+  collectionName: 'wine_seltzers_etc_menus';
+  info: {
+    singularName: 'wine-seltzers-etc-menu';
+    pluralName: 'wine-seltzers-etc-menus';
+    displayName: 'Wine seltzers etc menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beverage: Attribute.Component<'beverage.beverage', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wine-seltzers-etc-menu.wine-seltzers-etc-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wine-seltzers-etc-menu.wine-seltzers-etc-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -852,7 +989,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::beer-menu.beer-menu': ApiBeerMenuBeerMenu;
       'api::event.event': ApiEventEvent;
+      'api::events-list.events-list': ApiEventsListEventsList;
+      'api::food-menu.food-menu': ApiFoodMenuFoodMenu;
+      'api::hour.hour': ApiHourHour;
+      'api::non-alc-menu.non-alc-menu': ApiNonAlcMenuNonAlcMenu;
       'api::schedule.schedule': ApiScheduleSchedule;
+      'api::wine-seltzers-etc-menu.wine-seltzers-etc-menu': ApiWineSeltzersEtcMenuWineSeltzersEtcMenu;
     }
   }
 }

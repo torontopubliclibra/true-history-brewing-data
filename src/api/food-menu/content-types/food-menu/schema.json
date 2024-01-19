@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "food_menus",
+  "info": {
+    "singularName": "food-menu",
+    "pluralName": "food-menus",
+    "displayName": "Food menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "food-item.food-item"
+    }
+  }
+}

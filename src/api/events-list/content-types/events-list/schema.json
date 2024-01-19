@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events_lists",
+  "info": {
+    "singularName": "events-list",
+    "pluralName": "events-lists",
+    "displayName": "Events list"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event.event"
+    }
+  }
+}

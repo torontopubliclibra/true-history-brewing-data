@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_beverage_beverages",
+  "info": {
+    "displayName": "beverage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "minLength": 4
+    },
+    "abv": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 5
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "minLength": 6
+    }
+  }
+}

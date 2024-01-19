@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hours",
+  "info": {
+    "singularName": "hour",
+    "pluralName": "hours",
+    "displayName": "Hours",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "tues": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "weds": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "thurs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "fri": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "sat": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    },
+    "sun": {
+      "type": "component",
+      "repeatable": false,
+      "component": "day.day",
+      "required": true
+    }
+  }
+}

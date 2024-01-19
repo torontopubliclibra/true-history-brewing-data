@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wine_seltzers_etc_menus",
+  "info": {
+    "singularName": "wine-seltzers-etc-menu",
+    "pluralName": "wine-seltzers-etc-menus",
+    "displayName": "Wine seltzers etc menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "beverage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "beverage.beverage"
+    }
+  }
+}

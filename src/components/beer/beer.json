@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_beer_beers",
+  "info": {
+    "displayName": "beer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "minLength": 4
+    },
+    "abv": {
+      "type": "decimal",
+      "required": true,
+      "default": 4
+    },
+    "price": {
+      "type": "decimal",
+      "default": 9.25,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "minLength": 6,
+      "required": false
+    }
+  }
+}
