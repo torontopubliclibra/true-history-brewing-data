@@ -708,47 +708,6 @@ export interface ApiBeerMenuBeerMenu extends Schema.CollectionType {
   };
 }
 
-export interface ApiEventEvent extends Schema.CollectionType {
-  collectionName: 'events';
-  info: {
-    singularName: 'event';
-    pluralName: 'events';
-    displayName: 'Events';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    event1_date: Attribute.DateTime & Attribute.Required;
-    event1_title: Attribute.String;
-    event1_img: Attribute.Media;
-    event2_date: Attribute.DateTime;
-    event2_title: Attribute.String;
-    event2_img: Attribute.Media;
-    event3_date: Attribute.DateTime;
-    event3_title: Attribute.String;
-    event3_img: Attribute.Media;
-    event4_date: Attribute.DateTime;
-    event4_title: Attribute.String;
-    event4_img: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::event.event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::event.event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiEventsListEventsList extends Schema.CollectionType {
   collectionName: 'events_lists';
   info: {
@@ -869,77 +828,6 @@ export interface ApiNonAlcMenuNonAlcMenu extends Schema.CollectionType {
   };
 }
 
-export interface ApiScheduleSchedule extends Schema.CollectionType {
-  collectionName: 'schedules';
-  info: {
-    singularName: 'schedule';
-    pluralName: 'schedules';
-    displayName: 'Schedule';
-    description: 'THB hours of operation';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    mon_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'closed'>;
-    mon_start: Attribute.Time;
-    mon_end: Attribute.Time;
-    tues_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    tues_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    tues_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    weds_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    weds_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    weds_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    thurs_service: Attribute.Enumeration<
-      ['open', 'closed', 'bottle shop only']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    thurs_start: Attribute.Time & Attribute.DefaultTo<'16:00'>;
-    thurs_end: Attribute.Time & Attribute.DefaultTo<'23:00'>;
-    fri_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    fri_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    fri_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
-    sat_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    sat_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    sat_end: Attribute.Time & Attribute.DefaultTo<'00:00'>;
-    sun_service: Attribute.Enumeration<['open', 'closed', 'bottle shop only']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'open'>;
-    sun_start: Attribute.Time & Attribute.DefaultTo<'12:00'>;
-    sun_end: Attribute.Time & Attribute.DefaultTo<'22:00'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::schedule.schedule',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiWineSeltzersEtcMenuWineSeltzersEtcMenu
   extends Schema.CollectionType {
   collectionName: 'wine_seltzers_etc_menus';
@@ -988,12 +876,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::beer-menu.beer-menu': ApiBeerMenuBeerMenu;
-      'api::event.event': ApiEventEvent;
       'api::events-list.events-list': ApiEventsListEventsList;
       'api::food-menu.food-menu': ApiFoodMenuFoodMenu;
       'api::hour.hour': ApiHourHour;
       'api::non-alc-menu.non-alc-menu': ApiNonAlcMenuNonAlcMenu;
-      'api::schedule.schedule': ApiScheduleSchedule;
       'api::wine-seltzers-etc-menu.wine-seltzers-etc-menu': ApiWineSeltzersEtcMenuWineSeltzersEtcMenu;
     }
   }

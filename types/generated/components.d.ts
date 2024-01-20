@@ -77,7 +77,6 @@ export interface EventEvent extends Schema.Component {
       Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
-    link: Attribute.String;
   };
 }
 
