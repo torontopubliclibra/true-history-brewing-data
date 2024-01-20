@@ -14,10 +14,7 @@ export interface BeerBeer extends Schema.Component {
       }>;
     abv: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<4>;
     price: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<9.25>;
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    description: Attribute.String;
     ml: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<{
@@ -25,6 +22,31 @@ export interface BeerBeer extends Schema.Component {
         max: 1000;
       }> &
       Attribute.DefaultTo<500>;
+  };
+}
+
+export interface BeerRetailBeer extends Schema.Component {
+  collectionName: 'components_beer_retail_beers';
+  info: {
+    displayName: 'retail-beer';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+      }>;
+    abv: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<4>;
+    price: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<3.75>;
+    style: Attribute.String & Attribute.Required;
+    ml: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 100;
+        max: 1000;
+      }> &
+      Attribute.DefaultTo<355>;
   };
 }
 
@@ -119,6 +141,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'beer.beer': BeerBeer;
+      'beer.retail-beer': BeerRetailBeer;
       'beverage.beverage': BeverageBeverage;
       'day.day': DayDay;
       'event.event': EventEvent;

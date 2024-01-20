@@ -708,6 +708,37 @@ export interface ApiBeerMenuBeerMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiBottleShopListBottleShopList extends Schema.CollectionType {
+  collectionName: 'bottle_shop_lists';
+  info: {
+    singularName: 'bottle-shop-list';
+    pluralName: 'bottle-shop-lists';
+    displayName: 'Bottle shop list';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beer: Attribute.Component<'beer.retail-beer', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bottle-shop-list.bottle-shop-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bottle-shop-list.bottle-shop-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventsListEventsList extends Schema.CollectionType {
   collectionName: 'events_lists';
   info: {
@@ -876,6 +907,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::beer-menu.beer-menu': ApiBeerMenuBeerMenu;
+      'api::bottle-shop-list.bottle-shop-list': ApiBottleShopListBottleShopList;
       'api::events-list.events-list': ApiEventsListEventsList;
       'api::food-menu.food-menu': ApiFoodMenuFoodMenu;
       'api::hour.hour': ApiHourHour;

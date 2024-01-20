@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_beer_beers",
+  "collectionName": "components_beer_retail_beers",
   "info": {
-    "displayName": "beer",
+    "displayName": "retail-beer",
     "description": ""
   },
   "options": {},
@@ -19,16 +19,16 @@
     },
     "price": {
       "type": "decimal",
-      "default": 9.25,
+      "default": 3.75,
       "required": true
     },
-    "description": {
+    "style": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "ml": {
       "type": "integer",
-      "default": 500,
+      "default": 355,
       "required": true,
       "min": 100,
       "max": 1000

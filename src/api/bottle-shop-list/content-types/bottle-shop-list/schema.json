@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bottle_shop_lists",
+  "info": {
+    "singularName": "bottle-shop-list",
+    "pluralName": "bottle-shop-lists",
+    "displayName": "Bottle shop list",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "beer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "beer.retail-beer"
+    }
+  }
+}
