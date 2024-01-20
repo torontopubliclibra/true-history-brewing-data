@@ -18,6 +18,13 @@ export interface BeerBeer extends Schema.Component {
       Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    ml: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 100;
+        max: 1000;
+      }> &
+      Attribute.DefaultTo<500>;
   };
 }
 
@@ -38,6 +45,11 @@ export interface BeverageBeverage extends Schema.Component {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         minLength: 6;
+      }>;
+    ml: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 100;
+        max: 1000;
       }>;
   };
 }

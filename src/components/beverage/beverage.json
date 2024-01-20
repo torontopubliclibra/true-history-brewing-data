@@ -24,6 +24,11 @@
       "type": "text",
       "required": false,
       "minLength": 6
+    },
+    "ml": {
+      "type": "integer",
+      "max": 1000,
+      "min": 100
     }
   }
 }
