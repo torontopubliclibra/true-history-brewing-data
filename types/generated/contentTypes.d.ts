@@ -829,6 +829,43 @@ export interface ApiHourHour extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsletterEmailNewsletterEmail
+  extends Schema.CollectionType {
+  collectionName: 'newsletter_emails';
+  info: {
+    singularName: 'newsletter-email';
+    pluralName: 'newsletter-emails';
+    displayName: 'Newsletter emails';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsletter-email.newsletter-email',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsletter-email.newsletter-email',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNonAlcMenuNonAlcMenu extends Schema.CollectionType {
   collectionName: 'non_alc_menus';
   info: {
@@ -911,6 +948,7 @@ declare module '@strapi/types' {
       'api::events-list.events-list': ApiEventsListEventsList;
       'api::food-menu.food-menu': ApiFoodMenuFoodMenu;
       'api::hour.hour': ApiHourHour;
+      'api::newsletter-email.newsletter-email': ApiNewsletterEmailNewsletterEmail;
       'api::non-alc-menu.non-alc-menu': ApiNonAlcMenuNonAlcMenu;
       'api::wine-seltzers-etc-menu.wine-seltzers-etc-menu': ApiWineSeltzersEtcMenuWineSeltzersEtcMenu;
     }
